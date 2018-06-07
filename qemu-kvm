@@ -1,0 +1,27 @@
+#!/usr/bin/python
+
+import os
+import sys
+
+new_args = []
+
+# only change the "-cpu" options (inject kvm=off and hv_vendor_id=MyFake_KVM)
+for i in range(len(sys.argv)):
+    if i<=1: 
+        new_args.append(sys.argv[i])
+        continue
+    if sys.argv[i-1] != "-cpu":
+        new_args.append(sys.argv[i])
+        continue
+
+    subargs = sys.argv[i].split(",")
+
+    subargs.insert(1,"kvm=off")
+#    subargs.insert(2,"hv_vendor_id=MyFake_KVM")
+
+    new_arg = ",".join(subargs)
+
+    new_args.append(new_arg)
+
+os.execv('/usr/libexec/qemu-kvm.orig', new_args)
+

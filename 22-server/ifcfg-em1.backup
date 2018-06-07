@@ -1,0 +1,6 @@
+DEVICE=em1
+NAME=em1
+DEVICETYPE=ovs
+TYPE=OVSPort
+OVS_BRIDGE=br-ex
+ONBOOT=yes
