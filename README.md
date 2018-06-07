@@ -1,10 +1,3 @@
----
-layout: page
-title:  Packstack-config
-footer: false
-author: Yilong Ren <yilong.ren@sky-data.cn>
----
-
 # Packstack-config
 this repo is to record how to use packstack install OpenStack
 
